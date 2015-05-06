@@ -6,3 +6,4 @@ export LANG=en_US.UTF-8
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias :q=exit
+export PATH="$PATH:$HOME/bin"
