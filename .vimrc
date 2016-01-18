@@ -66,4 +66,11 @@ noremap <silent><leader>/ :nohls<cr>
 "When syntax highlight malfunctioning
 noremap <silent><leader>' :syntax sync fromstart<cr>
 
+" 웹 브라우저를 쓰는 것 같은 탭 전환
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
 
