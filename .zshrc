@@ -4,6 +4,8 @@ export LANG=en_US.UTF-8
 
 . `python -c "import site; print site.getsitepackages()[0]"`/powerline/bindings/zsh/powerline.zsh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias :q=exit
 export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
