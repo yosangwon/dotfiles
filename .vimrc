@@ -42,6 +42,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
   Bundle 'vim-ruby/vim-ruby'
+
+  " dash/zeal
+  let s:uname = system("uname")
+  if s:uname =~ "Darwin"
+    Plugin 'rizzatti/dash.vim'
+  else
+    Plugin 'KabbAmine/zeavim.vim'
+  endif
 call vundle#end()
 filetype plugin indent on
 
