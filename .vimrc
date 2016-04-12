@@ -5,7 +5,7 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 set laststatus=2
-
+set backspace=2
 set autoindent
 set cindent
 set smartindent
@@ -24,6 +24,7 @@ set ignorecase " 검색에서 대소문자를 구분하지 않음
 set smartcase " 대문자로 검색하면 구분을 함
 set mouse=a " 마우스 사용 가능
 set autoread " 파일 변경시 자동 로드
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " OS X specific powerline load
 if has("unix")
@@ -32,6 +33,7 @@ if has("unix")
     python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
   endif
 endif
+
 " powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
@@ -50,12 +52,24 @@ call vundle#begin()
   else
     Plugin 'KabbAmine/zeavim.vim'
   endif
+
+  Bundle 'tpope/vim-rails'
+  Bundle 'ctrlpvim/ctrlp.vim'
+  Bundle 'Shougo/neocomplete.vim'
 call vundle#end()
+
 filetype plugin indent on
+
+" CtrlP Configuration
+let g:ctrlp_working_path_mode = 'ra'
+
+" NeoComplete Configuration
+let g:neocomplete#enable_at_startup = 1
 
 map <C-S> :w<cr>
 imap <C-s> <esc>:w<cr>i
 
+" Resize Panel
 map <C-J> <C-W>-
 map <C-K> <C-W>+
 map <C-H> <C-W><
@@ -65,20 +79,16 @@ imap <C-K> <esc><C-W>+i
 imap <C-H> <esc><C-W><i
 imap <C-L> <esc><C-W>>i
 
-"Up and Down for wrapped lines
+" Up and Down for wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-"Clear search highlights
+" Clear search highlights
 noremap <silent><leader>/ :nohls<cr>
-"When syntax highlight malfunctioning
+" When syntax highlight malfunctioning
 noremap <silent><leader>' :syntax sync fromstart<cr>
 
-" 웹 브라우저를 쓰는 것 같은 탭 전환
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
+" Make a new tab like Firefox®
 nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
