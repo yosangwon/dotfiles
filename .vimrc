@@ -56,6 +56,7 @@ call vundle#begin()
   Bundle 'tpope/vim-rails'
   Bundle 'ctrlpvim/ctrlp.vim'
   Bundle 'Shougo/neocomplete.vim'
+  Bundle 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 filetype plugin indent on
@@ -68,16 +69,6 @@ let g:neocomplete#enable_at_startup = 1
 
 map <C-S> :w<cr>
 imap <C-s> <esc>:w<cr>i
-
-" Resize Panel
-map <C-J> <C-W>-
-map <C-K> <C-W>+
-map <C-H> <C-W><
-map <C-L> <C-W>>
-imap <C-J> <esc><C-W>-i
-imap <C-K> <esc><C-W>+i
-imap <C-H> <esc><C-W><i
-imap <C-L> <esc><C-W>>i
 
 " Up and Down for wrapped lines
 nnoremap j gj
