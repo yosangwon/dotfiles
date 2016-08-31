@@ -18,6 +18,7 @@ set noshowmode " Powerline에서 보여주니까 여기선 빼자
 set number
 set nobackup
 
+set clipboard=unnamed
 set hlsearch
 set incsearch " 순간검색
 set ignorecase " 검색에서 대소문자를 구분하지 않음
@@ -42,21 +43,23 @@ python del powerline_setup
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
+  Bundle 'gmarik/Vundle.vim'
+  Bundle 'christoomey/vim-tmux-navigator'
+  Bundle 'scrooloose/nerdtree'
   Bundle 'vim-ruby/vim-ruby'
 
   " dash/zeal
   let s:uname = system("uname")
   if s:uname =~ "Darwin"
-    Plugin 'rizzatti/dash.vim'
+    Bundle 'rizzatti/dash.vim'
   else
-    Plugin 'KabbAmine/zeavim.vim'
+    Bundle 'KabbAmine/zeavim.vim'
   endif
 
   Bundle 'tpope/vim-rails'
   Bundle 'ctrlpvim/ctrlp.vim'
   Bundle 'Shougo/neocomplete.vim'
-  Bundle 'christoomey/vim-tmux-navigator'
+  Bundle 'leafgarland/typescript-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -82,4 +85,5 @@ noremap <silent><leader>' :syntax sync fromstart<cr>
 " Make a new tab like Firefox®
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
+map <C-n> :NERDTreeToggle<CR>
 
