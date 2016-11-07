@@ -60,6 +60,9 @@ call vundle#begin()
   Bundle 'ctrlpvim/ctrlp.vim'
   Bundle 'Shougo/neocomplete.vim'
   Bundle 'leafgarland/typescript-vim'
+  Bundle 'wikitopian/hardmode'
+  Bundle 'airblade/vim-gitgutter'
+  Bundle 'rking/ag.vim'
 call vundle#end()
 
 filetype plugin indent on
