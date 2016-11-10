@@ -2,6 +2,8 @@ alias tmux="TERM=screen-256color-bce tmux"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+echo "Please wait.. because \033[0;31mpython is too slow\033[0m"
+. "$(pip show powerline-status | grep Location: | cut -d " " -f 2)/powerline/bindings/zsh/powerline.zsh"
 ZSH_THEME="robbyrussell"
 
 alias :q=exit
