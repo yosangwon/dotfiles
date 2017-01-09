@@ -18,7 +18,7 @@ set noshowmode " Powerline에서 보여주니까 여기선 빼자
 set number
 set nobackup
 
-set clipboard=unnamed
+" set clipboard=unnamed
 set hlsearch
 set incsearch " 순간검색
 set ignorecase " 검색에서 대소문자를 구분하지 않음
