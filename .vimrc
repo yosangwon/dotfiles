@@ -17,7 +17,7 @@ set expandtab
 set noshowmode " Powerline에서 보여주니까 여기선 빼자
 set number
 set nobackup
-
+filetype off
 " set clipboard=unnamed
 set hlsearch
 set incsearch " 순간검색
@@ -56,9 +56,9 @@ call vundle#begin()
     Bundle 'KabbAmine/zeavim.vim'
   endif
 
+  Bundle 'elixir-lang/vim-elixir'
   Bundle 'tpope/vim-rails'
   Bundle 'ctrlpvim/ctrlp.vim'
-  Bundle 'Shougo/neocomplete.vim'
   Bundle 'leafgarland/typescript-vim'
   Bundle 'wikitopian/hardmode'
   Bundle 'airblade/vim-gitgutter'
