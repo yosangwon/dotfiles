@@ -27,19 +27,6 @@ set mouse=a " 마우스 사용 가능
 set autoread " 파일 변경시 자동 로드
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" OS X specific powerline load
-if has("unix")
-  let s:uname = substitute(system("uname"), '\n', '', '')
-  if s:uname == "Darwin"
-    python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
-  endif
-endif
-
-" powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -47,6 +34,8 @@ call vundle#begin()
   Bundle 'christoomey/vim-tmux-navigator'
   Bundle 'scrooloose/nerdtree'
   Bundle 'vim-ruby/vim-ruby'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
 
   " dash/zeal
   let s:uname = system("uname")
