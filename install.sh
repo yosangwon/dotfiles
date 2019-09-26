@@ -3,3 +3,9 @@ ln -fs $PWD/tmux.conf ~/.tmux.conf
 
 mkdir -p ~/.config/nvim/bundle
 ln -fs $PWD/nvimrc.vim ~/.config/nvim/init.vim
+
+ln -fs $PWD/ruby-version ~/.ruby-version
+ln -fs $PWD/pryrc.rb ~/.pryrc
+
+ln -fs $PWD/gitconfig ~/.gitconfig
+ln -fs $PWD/gitignore ~/.gitignore_global

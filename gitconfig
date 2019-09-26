@@ -1,0 +1,7 @@
+[user]
+name = YI Sangwon
+email = yi@sangwon.dev 
+
+[core]
+	editor = /usr/local/bin/nvim
+	excludesfile = /Users/sangwon/.gitignore_global
