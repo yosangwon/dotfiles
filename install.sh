@@ -9,3 +9,5 @@ ln -fs $PWD/pryrc.rb ~/.pryrc
 
 ln -fs $PWD/gitconfig ~/.gitconfig
 ln -fs $PWD/gitignore ~/.gitignore_global
+
+ln -fs $PWD/bin ~/.bin

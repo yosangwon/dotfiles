@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+echo "O RLY?"
+source ~/.zshrc
+
+echo "Here's the list of installed versions:"
+chruby
+
+echo "Installing the latest version of bundler..."
+gem install bundler
+
+echo "and installing the bundle command to install your dependencies..."
+bundle
+
+echo "All done! You might have to \`refrezsh\` because of chruby stuff."

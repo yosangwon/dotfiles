@@ -27,7 +27,10 @@ alias be="bundle exec"
 alias beg="bundle exec guard"
 export PATH="$PATH:$HOME/bin"
 export PATH="$HOME/.bin:$PATH"
+
 alias vim="nvim"
+
+alias refrezsh="exec $SHELL"
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
