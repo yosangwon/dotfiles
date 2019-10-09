@@ -5,9 +5,5 @@
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # install other usual stuff
-brew install nvim tmux zsh ffmpeg antigen chruby ruby-install
+brew install nvim tmux zsh ffmpeg antigen chruby ruby-install ag
 brew cask install google-cloud-sdk
-
-# git configs
-git config --global core.editor `which nvim`
-git config --edit --global
