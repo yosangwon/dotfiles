@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+VERSION_TO_INSTALL="$1"
+
+if [ "$VERSION_TO_INSTALL" != "" ]; then
+  if [ ! -d "$HOME/.rubies/$VERSION_TO_INSTALL" ]; then
+    brew upgrade ruby-install
+    ruby-install $VERSION_TO_INSTALL
+  fi
+  ~/.rubies/$VERSION_TO_INSTALL/bin/gem install bundler
+else
+  echo "Usage: $0 [ruby version to install e.g. ruby-2.6.5]"
+  exit
+fi
