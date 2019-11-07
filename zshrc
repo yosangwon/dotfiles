@@ -31,6 +31,7 @@ export PATH="$HOME/.bin:$PATH"
 alias vim="nvim"
 
 alias refrezsh="exec $SHELL"
+alias mastaa="git checkout master && git pull"
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
