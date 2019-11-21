@@ -33,6 +33,8 @@ alias vim="nvim"
 alias refrezsh="exec $SHELL"
 alias mastaa="git checkout master && git pull"
 
+kubesh() { kubectl exec -it $(kubectl get pod -l "app=$1" -o jsonpath='{.items[0].metadata.name}') -- bash }
+
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
