@@ -32,6 +32,7 @@ alias vim="nvim"
 
 alias refrezsh="exec $SHELL"
 alias mastaa="git checkout master && git pull"
+alias mastar="mastaa && bundle"
 
 kubesh() { kubectl exec -it $(kubectl get pod -l "app=$1" -o jsonpath='{.items[0].metadata.name}') -- bash }
 
