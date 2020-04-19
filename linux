@@ -11,10 +11,16 @@ echo -n "Checking if you're on debian... "
 
 if command -v apt-get 2> /dev/null; then
   echo "OK! Let's install some packages."
-  sudo apt install zsh neovim ffmpeg ssh silversearcher-ag git mercurial gcc g++ cmake automake
+  sudo apt install zsh neovim ffmpeg ssh silversearcher-ag git mercurial gcc g++ cmake automake curl wget make
 else
   echo "nope\n"
   echo "Sangwon isn't using debian? NO WAY!"
+
+  if ! command -v curl > /dev/null; then
+    echo "it seems like there isn't curl installed on this system."
+    echo "Please install it to continue..."
+    bash
+  fi
 fi
 
 # install ruby-install
