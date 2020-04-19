@@ -94,6 +94,9 @@ progressln "Create gitconfig..."
 progressln "Setting up dotfiles..."
 ./setup-dotfiles
 
+progressln "Setting zsh as default shell..."
+chsh -s $(command -v zsh)
+
 # Install ruby
 progressln "Installing ruby..."
 ./bin/getruby "ruby-$RUBY_VERSION"
