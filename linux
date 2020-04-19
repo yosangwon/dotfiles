@@ -10,6 +10,7 @@ USERNAME=$(id -un)
 echo -n "Checking if you're on debian... "
 
 if command -v apt-get 2> /dev/null; then
+  echo "OK! Let's install some packages."
   sudo apt install zsh neovim ffmpeg ssh silversearcher-ag git mercurial gcc g++ cmake automake
 else
   echo "nope\n"
@@ -17,19 +18,19 @@ else
 fi
 
 # install ruby-install
-wget -O ruby-install.tar.gz https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
-tar -xzvf ruby-install.tar.gz
-cd ruby-install/
+wget -O ruby-install-$RUBY_INSTALL_VERSION.tar.gz https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
+tar -xzvf ruby-install-$RUBY_INSTALL_VERSION.tar.gz
+cd ruby-install-$RUBY_INSTALL_VERSION/
 sudo make install
-cd .. && rm -rf ruby-install
+cd .. && rm -rf ruby-install-$RUBY_INSTALL_VERSION
 
 # install chruby
-wget -O chruby.tar.gz https://github.com/postmodern/chruby/archive/v$CHRUBY_VERSION.tar.gz
-tar -xzvf chruby.tar.gz
-cd chruby/
+wget -O chruby-$CHRUBY_VERSION.tar.gz https://github.com/postmodern/chruby/archive/v$CHRUBY_VERSION.tar.gz
+tar -xzvf chruby-$CHRUBY_VERSION.tar.gz
+cd chruby-$CHRUBY_VERSION/
 PREFIX=/usr/local/opt/chruby sudo make install
 echo $PREFIX
-cd .. && rm -rf chruby 
+cd .. && rm -rf chruby-$CHRUBY_VERSION 
 
 # install antigen
 sudo mkdir -p /usr/local/share/antigen
