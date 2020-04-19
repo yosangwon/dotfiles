@@ -2,6 +2,7 @@
 
 RUBY_INSTALL_VERSION=0.7.0
 CHRUBY_VERSION=0.3.9
+RUBY_VERSION=$(cat ruby-version)
 USERNAME=$(id -un)
 
 progressln () {
@@ -34,7 +35,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 else
   # linux: mainly debian
   progress "Something other than macOS detected!"
-  progress "Checking if you're on debian... "
+  progress "Checking if it's debian... "
 
   if command -v apt-get 2> /dev/null; then
     progressln "Installing packages with apt..."
@@ -91,4 +92,4 @@ progressln "Setting up dotfiles..."
 
 # Install ruby
 progressln "Installing ruby..."
-./bin/getruby "ruby-`cat ruby-version`"
+./bin/getruby "ruby-$RUBY_VERSION"
