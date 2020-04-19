@@ -87,6 +87,10 @@ else
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+# Create global gitconfig file
+progressln "Create gitconfig..."
+./create_gitconfig
+
 progressln "Setting up dotfiles..."
 ./setup-dotfiles
 
