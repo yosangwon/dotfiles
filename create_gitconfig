@@ -1,0 +1,20 @@
+#!/usr/bin/env bash 
+
+NVIM_PATH=$(command -v nvim)
+GITIGNORE_GLOBAL="$HOME/.gitignore_global"
+
+printf "\e[1;32m***\e[0m\e[1m Name:\e[0m "
+read username
+
+printf "\e[1;32m***\e[0m\e[1m E-mail Address:\e[0m "
+read email
+
+cat << EOF > gitconfig;
+[user]
+  name = $username
+  email = $email
+
+[core]
+  editor = $NVIM_PATH
+  excludesfile = $GITIGNORE_GLOBAL
+EOF
