@@ -67,7 +67,7 @@ curl -Lo chruby-$CHRUBY_VERSION.tar.gz https://github.com/postmodern/chruby/arch
 tar -xzvf chruby-$CHRUBY_VERSION.tar.gz
 cd chruby-$CHRUBY_VERSION/
 progressln "Installing chruby..."
-PREFIX=/usr/local/opt/chruby sudo make install
+sudo make install
 cd .. && rm -rf chruby-$CHRUBY_VERSION chruby-$CHRUBY_VERSION.tar.gz
 
 # install antigen

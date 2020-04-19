@@ -1,5 +1,5 @@
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
