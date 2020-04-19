@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+RUBY_INSTALL_VERSION=0.7.0
+CHRUBY_VERSION=0.3.9
+USERNAME=$(id -un)
+
+progressln () {
+  progress "$1\n"
+}
+
+progress () {
+  printf "\n\e[1;32m***\e[0m\e[1m $1\e[0m"
+}
+
+# install packages
+progress "Installing packages..."
+if [ "$(uname -s)" = "Darwin" ]; then
+  # macOS: homebrew
+  progress "macOS detected!"
+  progress "Checking if homebrew is installed..."
+
+  if command -v brew > /dev/null; then
+    echo "yes"
+  else
+    echo "no"
+    progressln "installing Homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  # install usual stuff with Homebrew
+  progressln "Installing packages with Homebrew..."
+  brew install nvim tmux zsh ffmpeg ag hg
+  brew cask install google-cloud-sdk
+else
+  # linux: mainly debian
+  progress "Something other than macOS detected!"
+  progress "Checking if you're on debian... "
+
+  if command -v apt-get 2> /dev/null; then
+    progressln "Installing packages with apt..."
+    sudo apt install -y zsh neovim ffmpeg ssh silversearcher-ag git mercurial gcc g++ cmake automake curl wget make
+  else
+    echo "no"
+    progressln "Sangwon isn't using debian? NO WAY!"
+
+    if ! command -v curl > /dev/null; then
+      progress "it seems like there isn't curl installed on this system."
+      progressln "Please install it to continue..."
+      bash
+    fi
+  fi
+fi
+
+# install ruby-install
+progressln "Downloading ruby-install..."
+curl -Lo ruby-install-$RUBY_INSTALL_VERSION.tar.gz https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
+tar -xzvf ruby-install-$RUBY_INSTALL_VERSION.tar.gz
+cd ruby-install-$RUBY_INSTALL_VERSION/
+progressln "Installing ruby-install..."
+sudo make install
+cd .. && rm -rf ruby-install-$RUBY_INSTALL_VERSION ruby-install-$RUBY_INSTALL_VERSION.tar.gz
+
+# install chruby
+progressln "Downloading chruby..."
+curl -Lo chruby-$CHRUBY_VERSION.tar.gz https://github.com/postmodern/chruby/archive/v$CHRUBY_VERSION.tar.gz
+tar -xzvf chruby-$CHRUBY_VERSION.tar.gz
+cd chruby-$CHRUBY_VERSION/
+progressln "Installing chruby..."
+PREFIX=/usr/local/opt/chruby sudo make install
+cd .. && rm -rf chruby-$CHRUBY_VERSION chruby-$CHRUBY_VERSION.tar.gz
+
+# install antigen
+progressln "Installing antigen..."
+sudo mkdir -p /usr/local/share/antigen
+sudo chown $USERNAME /usr/local/share/antigen
+curl -L git.io/antigen > /usr/local/share/antigen/antigen.zsh
+
+# install Vundlevim
+progress "Checking if VundleVim is already installed..."
+
+if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  echo "yes"
+else
+  echo "no"
+  progressln "Installing VundleVim..."
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+progressln "Setting up dotfiles..."
+./setup-dotfiles
+
+# Install ruby
+progressln "Installing ruby..."
+./bin/getruby "ruby-`cat ruby-version`"

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm ~/.bin
+
 ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/tmux.conf ~/.tmux.conf
 
