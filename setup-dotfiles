@@ -4,6 +4,7 @@ rm ~/.bin
 
 ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/tmux.conf ~/.tmux.conf
+ln -fs $PWD/tmuxline ~/.tmuxline
 
 mkdir -p ~/.config/nvim/bundle
 ln -fs $PWD/nvimrc.vim ~/.config/nvim/init.vim

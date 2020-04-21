@@ -35,6 +35,7 @@ call vundle#begin()
   Bundle 'vim-ruby/vim-ruby'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
+  Bundle 'edkolev/tmuxline.vim'
 
   " dash/zeal
   let s:uname = system("uname")
