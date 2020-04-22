@@ -30,7 +30,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 
   # install usual stuff with Homebrew
   progressln "Installing packages with Homebrew..."
-  brew install nvim tmux zsh ffmpeg ag hg
+  brew install nvim tmux zsh ffmpeg ag hg git-delta
   brew cask install google-cloud-sdk
 else
   # linux: mainly debian

@@ -18,3 +18,7 @@ cat << EOF > gitconfig;
   editor = $NVIM_PATH
   excludesfile = $GITIGNORE_GLOBAL
 EOF
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  echo "  pager = delta --dark" >> gitconfig
+fi
