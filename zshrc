@@ -1,6 +1,7 @@
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 source /usr/local/share/antigen/antigen.zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -37,8 +38,8 @@ alias mastar="mastaa && bundle"
 kubesh() { kubectl exec -it $(kubectl get pod -l "app=$1" -o jsonpath='{.items[0].metadata.name}') -- bash }
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+  source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+  source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
 export LC_ALL=en_US.UTF-8
