@@ -16,6 +16,7 @@ create ssh key
 
 ```
 ssh-keygen -t ed25519
+cat ~/.ssh/id_ed25519.pub | pbcopy
 ```
 
 [go to github settings and register it to your account](https://github.com/settings/keys)
@@ -23,8 +24,10 @@ ssh-keygen -t ed25519
 then clone this repository and run `./install`. Note: it will ask you to type something.
 
 ```
-git clone git@github.com:yosangwon/dotfiles
-cd dotfiles && ./install
+mkdir ~/projects
+git clone git@github.com:yosangwon/dotfiles ~/projects/dotfiles
+cd ~/projects/dotfiles && ./install
+./afterbrew # if necessary
 ```
 
 have fun.
