@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+RUBY_INSTALL_VERSION=0.9.3
+CHRUBY_VERSION=0.3.9
+RUBY_VERSION=3.3.4
+
+progressln () {
+  progress "$1\n"
+}
+
+progress () {
+  printf "\n\e[1;32m***\e[0m\e[1m $1\e[0m"
+}
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  # install usual stuff with Homebrew
+  progressln "Installing packages with Homebrew..."
+  brew install nvim tmux zsh ffmpeg ag hg git-delta
+  brew cask install google-cloud-sdk
+fi
+
+# install ruby-install
+progressln "Downloading ruby-install..."
+curl -Lo ruby-install-$RUBY_INSTALL_VERSION.tar.gz https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
+tar -xzvf ruby-install-$RUBY_INSTALL_VERSION.tar.gz
+cd ruby-install-$RUBY_INSTALL_VERSION/
+progressln "Installing ruby-install..."
+sudo make install
+cd .. && rm -rf ruby-install-$RUBY_INSTALL_VERSION ruby-install-$RUBY_INSTALL_VERSION.tar.gz
+
+# install chruby
+progressln "Downloading chruby..."
+curl -Lo chruby-$CHRUBY_VERSION.tar.gz https://github.com/postmodern/chruby/archive/v$CHRUBY_VERSION.tar.gz
+tar -xzvf chruby-$CHRUBY_VERSION.tar.gz
+cd chruby-$CHRUBY_VERSION/
+progressln "Installing chruby..."
+sudo make install
+cd .. && rm -rf chruby-$CHRUBY_VERSION chruby-$CHRUBY_VERSION.tar.gz
+
+progressln "Create gitconfig..."
+./create_gitconfig
+
+progressln "Setting zsh as default shell..."
+chsh -s $(command -v zsh)

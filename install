@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-RUBY_INSTALL_VERSION=0.9.3
-CHRUBY_VERSION=0.3.9
-RUBY_VERSION=3.3.4
 USERNAME=$(id -un)
 
 progressln () {
@@ -28,10 +25,8 @@ if [ "$(uname -s)" = "Darwin" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  # install usual stuff with Homebrew
-  progressln "Installing packages with Homebrew..."
-  brew install nvim tmux zsh ffmpeg ag hg git-delta
-  brew cask install google-cloud-sdk
+  progressln "Finished setting up Homebrew!"
+  progressln "don't forget to run \`./afterbrew\` after running this script!"
 else
   # linux: mainly debian
   progress "Something other than macOS detected!"
@@ -50,25 +45,9 @@ else
       bash
     fi
   fi
+
+  ./afterbrew
 fi
-
-# install ruby-install
-progressln "Downloading ruby-install..."
-curl -Lo ruby-install-$RUBY_INSTALL_VERSION.tar.gz https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
-tar -xzvf ruby-install-$RUBY_INSTALL_VERSION.tar.gz
-cd ruby-install-$RUBY_INSTALL_VERSION/
-progressln "Installing ruby-install..."
-sudo make install
-cd .. && rm -rf ruby-install-$RUBY_INSTALL_VERSION ruby-install-$RUBY_INSTALL_VERSION.tar.gz
-
-# install chruby
-progressln "Downloading chruby..."
-curl -Lo chruby-$CHRUBY_VERSION.tar.gz https://github.com/postmodern/chruby/archive/v$CHRUBY_VERSION.tar.gz
-tar -xzvf chruby-$CHRUBY_VERSION.tar.gz
-cd chruby-$CHRUBY_VERSION/
-progressln "Installing chruby..."
-sudo make install
-cd .. && rm -rf chruby-$CHRUBY_VERSION chruby-$CHRUBY_VERSION.tar.gz
 
 # install antigen
 progressln "Installing antigen..."
@@ -87,15 +66,8 @@ else
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-# Create global gitconfig file
-progressln "Create gitconfig..."
-./create_gitconfig
-
 progressln "Setting up dotfiles..."
 ./setup-dotfiles
-
-progressln "Setting zsh as default shell..."
-chsh -s $(command -v zsh)
 
 # Install ruby
 progressln "Installing ruby..."
