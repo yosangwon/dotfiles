@@ -13,10 +13,7 @@ progress () {
 }
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  # install usual stuff with Homebrew
-  progressln "Installing packages with Homebrew..."
-  brew install nvim tmux zsh ffmpeg ag hg git-delta chruby ruby-install
-  brew cask install google-cloud-sdk
+  brew bundle
 else
   # install ruby-install
   progressln "Downloading ruby-install..."
