@@ -52,9 +52,11 @@ call vundle#begin()
   Bundle 'wikitopian/hardmode'
   Bundle 'airblade/vim-gitgutter'
   Bundle 'rking/ag.vim'
+  Bundle 'catppuccin/nvim'
 call vundle#end()
 
 filetype plugin indent on
+colorscheme catppuccin-macchiato
 
 " CtrlP Configuration
 let g:ctrlp_working_path_mode = 'ra'
@@ -78,4 +80,3 @@ noremap <silent><leader>' :syntax sync fromstart<cr>
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 map <C-n> :NERDTreeToggle<CR>
-
