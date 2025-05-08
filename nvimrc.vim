@@ -2,7 +2,6 @@ let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
-set termencoding=utf-8
 set laststatus=2
 set backspace=2
 set autoindent
