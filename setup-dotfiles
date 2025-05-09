@@ -6,6 +6,7 @@ ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/tmux.conf ~/.tmux.conf
 ln -fs $PWD/tmuxline ~/.tmuxline
 
+mkdir ~/.config/nvim
 ln -fs $PWD/nvim/init.lua ~/.config/nvim/init.lua
 ln -fs $PWD/nvim/lua ~/.config/nvim/lua
 
