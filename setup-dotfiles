@@ -6,8 +6,8 @@ ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/tmux.conf ~/.tmux.conf
 ln -fs $PWD/tmuxline ~/.tmuxline
 
-mkdir -p ~/.config/nvim/bundle
-ln -fs $PWD/nvimrc.vim ~/.config/nvim/init.vim
+ln -fs $PWD/nvim/init.lua ~/.config/nvim/init.lua
+ln -fs $PWD/nvim/lua ~/.config/nvim/lua
 
 ln -fs $PWD/ruby-version ~/.ruby-version
 ln -fs $PWD/pryrc.rb ~/.pryrc
