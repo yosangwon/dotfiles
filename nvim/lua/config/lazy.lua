@@ -31,4 +31,5 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  git = { cooldown = 60 * 60 * 24 * 7 },
 })
